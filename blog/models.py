@@ -11,7 +11,7 @@ class NewUser(AbstractUser):
 
 
 class Post(models.Model):
-    site_name = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(NewUser, on_delete=models.CASCADE, related_name="blog_post")
     updated_on = models.DateTimeField(auto_now=True)
