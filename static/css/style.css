@@ -40,7 +40,7 @@ body {
 
 .card {
     /* border: none; */
-    background-color: #BFA288;
+    background-color: rgb(190,162,136, .4);
 }
 
 .image-container {
