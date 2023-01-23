@@ -2,11 +2,26 @@
 
 {% block content %}
 
+<div class="row col-10 col-md-6 mt-5 text-center center ">
+    {% if user.is_superuser %}
+        <a href="{% url 'home' %}" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa-solid fa-earth-americas"></i> <br><span class="small-text">All</span></p></a>
+        <a href="" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa-regular fa-thumbs-up"></i><br><span class="small-text">Interesting</span></p></a>
+        <a href="" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa fa-circle-exclamation"></i><br><span class="small-text">Important</span></p></a>
+        <a href="" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa fa-magnifying-glass-chart"></i><br><span class="small-text">Underrated</span></p></a>
+        <a href="" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa-solid fa-plus"></i><br><span class="small-text">Add Post</span></p></a>
+    {% else %}
+        <p class="card-text col-md-3"><i class="fa-solid fa-earth-americas"></i><br><span class="small-text">Interesting</span></p>
+        <p class="card-text col-md-3"><i class="fa-regular fa-thumbs-up"></i><br><span class="small-text">Interesting</span></p>
+        <p class="card-text col-md-3"><i class="fa fa-circle-exclamation"></i><br><span class="small-text">Important</span></p>
+        <p class="card-text col-md-3"><i class="fa fa-magnifying-glass-chart"></i><br><span class="small-text">Underrated</span></p>
+    {% endif %}
+</div>
+
 <div class="container-fluid">
     <div class="row">
 
         <!-- Blog Entries Column -->
-        <div class="col-12 mt-5">
+        <div class="col-12 mt-3">
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-12 col-lg-8 center">
@@ -30,9 +45,9 @@
                                     </a>
                                     <hr />
                                     <div class="row text-center center">
-                                        <p class="card-text col-sm-4"><i class="fa-regular fa-thumbs-up"></i><sup> {{ post.number_of_interesting_likes }}</sup> <br><span class="small">Interesting</span></p>
-                                        <p class="card-text col-sm-4"><i class="fa fa-circle-exclamation"></i><sup> {{ post.number_of_important_likes }}</sup> <br><span class="small">Important</span></p>
-                                        <p class="card-text col-sm-4"><i class="fa fa-magnifying-glass-chart"></i><sup> {{ post.number_of_underrated_likes }}</sup> <br><span class="small">Underrated</span></p>
+                                        <p class="card-text col-3 col-sm-4 center"><i class="fa-regular fa-thumbs-up"></i><sup> {{ post.number_of_interesting_likes }}</sup> <br><span class="small-text">Interesting</span></p>
+                                        <p class="card-text col-3 col-sm-4 center"><i class="fa fa-circle-exclamation"></i><sup> {{ post.number_of_important_likes }}</sup> <br><span class="small-text">Important</span></p>
+                                        <p class="card-text col-3 col-sm-4 center"><i class="fa fa-magnifying-glass-chart"></i><sup> {{ post.number_of_underrated_likes }}</sup> <br><span class="small-text">Underrated</span></p>
                                     </div>
                                     
                                 </div>

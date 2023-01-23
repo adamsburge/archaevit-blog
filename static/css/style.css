@@ -95,14 +95,41 @@ body {
     z-index: 100;
 }
 
-.post-link {
+.socials {
+    font-size: x-large;
+}
+
+.filter-link {
     text-decoration: none;
     color: #445261;
+    border-radius: 3px;
+    padding: 2px;
+}
+
+.filter-link:hover {
+    background-color: #445261;
+    color: #F9FAFC;
+}
+
+
+.post-link {
+    text-decoration: none;
+    color: #364022;
 }
 
 .post-link:hover,
 .page-link {
-    color: #364022;
+    color: #445261;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #F9FAFC;
+}
+
+.footer-link:hover {
+    color: #F9FAFC;
+    text-decoration: underline;
 }
 
 .post-title {
@@ -152,4 +179,18 @@ body {
 
 .navbar-collapse {
     flex-grow: unset;
+}
+
+.small-text {
+    font-size: small;
+}
+
+@media (max-width: 767px) {
+    .small-text {
+        display: none;
+    }
+
+    .filter-link {
+        font-size: x-large;
+    }
 }
