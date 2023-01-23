@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-12 mt-5">
+            <div class="row">
+                {% for post in post_list %}
+                <div class="col-md-12 col-lg-8 center">
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="image-container col-md-5">
+                                    {% if "placeholder" in post.featured_image.url %}
+                                    <img class="card-img-top"
+                                        src="https://res.cloudinary.com/daozyljmo/image/upload/v1674490539/jacqueline-martinez-Nc49IqsNm3E-unsplash_fqroxq.jpg">
+                                    {% else %}
+                                    <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-7 float-right">
+                                    <a href="#" class="post-link">
+                                        <h2 class="card-title">{{ post.title }}</h2>
+                                        <p class="card-text"><span class="bold">Country: </span>{{post.country }}</p>
+                                        <p class="card-text"><span class="bold">Dates: </span>{{post.dates }}</p>
+                                        <p class="card-text">{{ post.excerpt }}</p>
+                                    </a>
+                                    <hr />
+                                    <div class="row text-center center">
+                                        <p class="card-text col-sm-4"><i class="fa-regular fa-thumbs-up"></i><sup> {{ post.number_of_interesting_likes }}</sup> <br><span class="small">Interesting</span></p>
+                                        <p class="card-text col-sm-4"><i class="fa fa-circle-exclamation"></i><sup> {{ post.number_of_important_likes }}</sup> <br><span class="small">Important</span></p>
+                                        <p class="card-text col-sm-4"><i class="fa fa-magnifying-glass-chart"></i><sup> {{ post.number_of_underrated_likes }}</sup> <br><span class="small">Underrated</span></p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{%endblock%}
