@@ -39,7 +39,6 @@ body {
 }
 
 .card {
-    /* border: none; */
     background-color: rgb(190,162,136, .4);
 }
 
@@ -133,7 +132,7 @@ body {
 }
 
 .post-title {
-    margin-top: 20%;
+    margin-top: 25%;
     margin-left: 5%;
 }
 

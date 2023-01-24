@@ -37,7 +37,7 @@
                                     {% endif %}
                                 </div>
                                 <div class="col-md-7 float-right">
-                                    <a href="#" class="post-link">
+                                    <a href=" {% url 'post_detail' post.slug %}" class="post-link">
                                         <h2 class="card-title">{{ post.title }}</h2>
                                         <p class="card-text"><span class="bold">Country: </span>{{post.country }}</p>
                                         <p class="card-text"><span class="bold">Dates: </span>{{post.dates }}</p>
