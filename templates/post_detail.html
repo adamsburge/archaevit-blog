@@ -12,9 +12,9 @@
             <div class="row px-3">
                 <h5>Contents</h5>
                 <div class="ps-4">
-                    <h6 class="mt-3">– Site Details</h6>
-                    <h6 class="mt-3">– History of Site's Occupation</h6>
-                    <h6 class="mt-3">– Discussion</h6>
+                    <a href="#details" class="sidebar-link"><h6 class="mt-3">– Site Details</h6></a>
+                    <a href="#description" class="sidebar-link"><h6 class="mt-3">– History of Site's Occupation</h6></a>
+                    <a href="#discussion" class="sidebar-link"><h6 class="mt-3">– Discussion</h6></a>
                 </div>
             </div>
             <div class="row px-3 mt-3">
@@ -32,9 +32,9 @@
         <div class="row px-3 ms-5">
             <h5>Contents</h5>
             <div class="ps-4">
-                <h6 class="mt-3">– Site Details</h6>
-                <h6 class="mt-3">– History of Site's Occupation</h6>
-                <h6 class="mt-3">– Discussion</h6>
+                <a href="#details" class="sidebar-link"><h6 class="mt-3">– Site Details</h6></a>
+                <a href="#description" class="sidebar-link"><h6 class="mt-3">– History of Site's Occupation</h6></a>
+                <a href="#discussion" class="sidebar-link"><h6 class="mt-3">– Discussion</h6></a>
             </div>
         </div>
         <div class="row px-3 ms-5 mt-5">
@@ -69,7 +69,7 @@
             <div class="row">
                 <div class="col-12 col-md-10 mb-4  mt-3 left  top g-0">
                     <div class="card-body">
-                        <h3>Site Details</h3>
+                        <h3 id="details">Site Details</h3>
                         <p class="card-text"><span class="bold">Country: </span>{{post.country }}</p>
                         <p class="card-text"><span class="bold">Dates: </span>{{post.dates }}</p>
                     </div>
@@ -78,7 +78,7 @@
             <div class="row">
                 <div class="col-12 col-md-10 mb-4  mt-3 left  top g-0">
                     <div class="card-body">
-                        <h3>History of Site's Occupation</h3>
+                        <h3 id="description">History of Site's Occupation</h3>
                         <p class="card-text ">
                             {{ post.description | safe }}
                         </p>
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <div class="row g-0">
-                <h3>Discussion:</h3>
+                <h3 id="discussion">Discussion:</h3>
                 <div class="col-md-8 card mb-4  mt-3 ">
                     <div class="card-body">
                     </div>

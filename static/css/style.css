@@ -112,6 +112,16 @@ body {
     font-size: x-large;
 }
 
+.sidebar-link {
+    text-decoration: none;
+    color: #445261;
+}
+
+.sidebar-link:hover {
+    text-decoration: underline;
+    color: #445261;
+}
+
 .filter-link {
     text-decoration: none;
     color: #445261;
