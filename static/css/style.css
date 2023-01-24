@@ -60,6 +60,20 @@ body {
     text-transform: uppercase;
 }
 
+#post-mobile-dropdown {
+    color: #223240;
+    background-color: transparent;
+    border: none;
+
+    position: fixed;
+    top: 10px;
+    z-index: 1;
+}
+
+#collapseDetails {
+    position: fixed;
+}
+
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -184,6 +198,20 @@ body {
     font-size: small;
 }
 
+.accordion-button.collapsed, .accordion-button:not(.collapsed) {
+    background: #445261;
+    color: white;
+    border-top: solid 1px white;
+  }
+
+.accordion-button:not(.collapsed)::after, .accordion-button::after {
+    filter: brightness(1000%);
+}
+
+#mobile-accordion {
+    display: none;
+}
+
 @media (max-width: 767px) {
     .small-text {
         display: none;
@@ -191,5 +219,17 @@ body {
 
     .filter-link {
         font-size: x-large;
+    }
+
+    #post-side-bar-lg {
+        display: none;
+    }
+
+    #mobile-accordion {
+        display: unset;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
     }
 }
