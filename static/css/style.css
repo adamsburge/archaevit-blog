@@ -214,6 +214,10 @@ body {
     font-size: small;
 }
 
+.small-text-admin-edit {
+    font-size: small;
+}
+
 .accordion-button.collapsed, .accordion-button:not(.collapsed) {
     background: #445261;
     color: white;
@@ -286,6 +290,28 @@ body {
     cursor: pointer;
 }
 
+.admin-post-edit {
+    text-decoration: none;
+    background-color: #445261;
+    color: #F9FAFC;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 3px;
+}
+
+.admin-post-edit:hover {
+    text-decoration: none;
+    background-color: transparent;
+    color: #445261;
+    border: solid 1px #445261;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 3px;
+}
+
+.admin-post-edit-text {
+    margin-top: 5px;
+}
 
 @media (max-width: 767px) {
     .small-text {
@@ -318,5 +344,8 @@ body {
         width: 75px;
     }
     
+    .admin-post-edit{
+        width: 45%;
+    }
 
 }

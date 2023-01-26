@@ -1,8 +1,47 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
+from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, UpdatePostForm
+
+
+def add_post(request):
+	submitted = False
+	if request.method == "POST":
+		form = UpdatePostForm(request.POST)
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.author = request.user # logged in user
+			post.save()
+			#form.save()
+			return 	redirect('home')
+	else:
+		form = UpdatePostForm
+		if 'submitted' in request.GET:
+			submitted = True
+
+	return render(request, 'add_post.html', {'form':form, 'submitted':submitted})
+
+
+class AddPost(CreateView):
+    model = Post
+    template_name = 'add_post.html'
+    fields = ['title', 'country', 'dates', 'description',]
+
+
+def update_post(request, slug):
+	post = Post.objects.get(slug=slug)
+	if request.user.is_superuser:
+		form = UpdatePostForm(request.POST or None, instance=post)	
+	else:
+		form = UpdatePostForm(request.POST or None, instance=post)
+	
+	if form.is_valid():
+		form.save()
+		return redirect('home')
+
+	return render(request, 'update_post.html', {'post': post, 'form': form})
 
 
 class PostList(generic.ListView):

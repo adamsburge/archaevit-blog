@@ -1,6 +1,7 @@
 from allauth.account.forms import SignupForm
-from .models import Comment
+from .models import Comment, Post
 from django import forms
+from django.forms import ModelForm
 
 
 class CustomSignupForm(SignupForm):
@@ -35,3 +36,21 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('body',)
+
+
+class UpdatePostForm(forms.ModelForm):
+	class Meta:
+		model = Post
+		fields = ('title', 'country', 'dates', 'description',)
+		labels = {
+			'title': 'Title',
+			'country': 'Country',
+			'dates': 'Dates',
+			'description': 'Description',		
+		}
+		widgets = {
+			'title': forms.TextInput(attrs={'class':'form-control'}),
+			'country': forms.TextInput(attrs={'class':'form-control'}),
+			'dates': forms.TextInput(attrs={'class':'form-control'}),
+			'description': forms.Textarea(attrs={'class':'form-control'}),
+		}

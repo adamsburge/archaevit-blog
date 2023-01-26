@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser
 from cloudinary.models import CloudinaryField
+from django.utils.text import slugify
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -21,13 +22,23 @@ class Post(models.Model):
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=1)
     interesting_likes = models.ManyToManyField(NewUser, related_name='blog_interesting_likes', blank=True)
     important_likes = models.ManyToManyField(NewUser, related_name='blog_important_likes', blank=True)
     underrated_likes = models.ManyToManyField(NewUser, related_name='blog_underrated_likes', blank=True)
 
     class Meta:
         ordering = ['-created_on']
+
+
+    def get_absolute_url(self):
+        return reverse("post_detail", kwargs={"slug": self.slug})
+
+    def save(self, *args, **kwargs):  # new
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
+
 
     def __str__(self):
         return self.title

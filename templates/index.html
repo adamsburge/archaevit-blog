@@ -43,6 +43,12 @@
                                         <p class="card-text"><span class="bold">Dates: </span>{{post.dates }}</p>
                                         <p class="card-text">{{ post.excerpt }}</p>
                                     </a>
+                                    {% if user.is_superuser %}
+                                    <div class="row col-12 mt-2 ms-0 small-text-admin-edit text-center">
+                                        <a class="col-5 col-md-5 me-1 me-md-5 admin-post-edit" href=" {% url 'update-post' post.slug %} "><p class="admin-post-edit-text"><i class="fa-solid fa-pen-nib"></i> Edit Post</p></a>
+                                        <a class="col-5 col-md-5 admin-post-edit" href=" {% url 'update-post' post.slug %} "><p class="admin-post-edit-text"><i class="fa-solid fa-trash"></i> Delete Post</p></a>
+                                    </div>
+                                    {% endif %}
                                     <hr />
                                     <div class="row text-center center">
                                         <p class="card-text col-3 col-sm-4 center"><i class="fa-regular fa-thumbs-up"></i><sup> {{ post.number_of_interesting_likes }}</sup> <br><span class="small-text">Interesting</span></p>
