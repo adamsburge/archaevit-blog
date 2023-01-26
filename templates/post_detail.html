@@ -98,14 +98,15 @@
                 </div>
                 {% for comment in comments %}
                 <div class="col col-md-8 card mb-4  mt-3">
-                    <div class="card-body"></div>
-                        <div class="comments" style="padding: 10px;">
+                        <div class="comments pb-0" style="padding: 10px;">
                             <p class="font-weight-bold">
-                                {{ comment.name }}
-                                <span class=" text-muted font-weight-normal">
+                                <span id="comment-head">{{ comment.name }}</span>
+                                <br><span class=" text-muted font-weight-normal">
                                     {{ comment.created_on }}
-                                </span> wrote:
+                                </span>
                             </p>
+                        </div>
+                        <div class="comments pt-0" style="padding: 10px;">
                             {{ comment.body | linebreaks }}
                         </div>
                     </div>                    

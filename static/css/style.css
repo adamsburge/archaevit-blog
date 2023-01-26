@@ -155,6 +155,11 @@ body {
     text-decoration: underline;
 }
 
+#comment-head {
+    font-size: 1.07em;
+    font-weight: 800;
+}
+
 .post-title {
     margin-top: 25%;
     margin-left: 5%;
