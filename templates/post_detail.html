@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
+{% load crispy_forms_tags %}
+
 <div class="accordion accordion-flush" id="mobile-accordion">
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
@@ -94,25 +96,46 @@
                 <h3 id="discussion">Discussion:</h3>
                 <div class="col-md-8 card mb-4  mt-3 ">
                     <div class="card-body">
+                        {% if commented %}
+                        <div class="alert alert-success" role="alert">
+                            Your comment is awaiting approval
+                        </div>
+                        {% else %}
+                        {% if user.is_authenticated %}
+
+                            <h4>Join the Discussion:</h4>
+                            {% if user.institution %}
+                                <p>Posting as: {{ user.first_name }} {{ user.last_name }} – {{ user.role }} – {{ user.institution }}</p>
+                            {% else %}
+                                <p>Posting as: {{ user.first_name }} {{ user.last_name }} – {{ user.role }}</p>
+                            {% endif %}
+                            <form method="post" style="margin-top: 1.3em;">
+                                {{ comment_form | crispy }}
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-signup mt-3">Submit</button>
+                            </form>
+                        {% endif %}
+                        {% endif %}
                     </div>
                 </div>
                 {% for comment in comments %}
-                <div class="col col-md-8 card mb-4  mt-3">
-                        <div class="comments pb-0" style="padding: 10px;">
-                            <p class="font-weight-bold">
-                                <span id="comment-head">{{ comment.name }}</span>
-                                <br><span class=" text-muted font-weight-normal">
-                                    {{ comment.created_on }}
-                                </span>
-                            </p>
-                        </div>
-                        <div class="comments pt-0" style="padding: 10px;">
-                            {{ comment.body | linebreaks }}
-                        </div>
-                    </div>                    
-                </div>
-                {% endfor %}
+                <div class="row g-0">
+                    <div class="col col-md-8 card mb-4  mt-3">
+                            <div class="comments pb-0" style="padding: 10px;">
+                                <p class="font-weight-bold">
+                                    <span id="comment-head">{{ comment.name }}</span>
+                                    <br><span class=" text-muted font-weight-normal">
+                                        {{ comment.created_on }}
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="comments pt-0" style="padding: 10px;">
+                                {{ comment.body | linebreaks }}
+                            </div>
+                        </div>                    
+                    </div>
                 
+                {% endfor %}
             </div>
         </div>
     </div>

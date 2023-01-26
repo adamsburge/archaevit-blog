@@ -1,4 +1,5 @@
 from allauth.account.forms import SignupForm
+from .models import Comment
 from django import forms
 
 
@@ -28,3 +29,9 @@ class CustomSignupForm(SignupForm):
         self.fields['password1'].widget.attrs['placeholder'] = ''
         self.fields['password2'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['placeholder'] = ''
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('body',)

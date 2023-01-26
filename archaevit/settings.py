@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django_summernote',
+    'crispy_forms',
     'blog',
 ]
 
@@ -60,8 +61,10 @@ LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_FORMS = {
-'signup': 'blog.forms.CustomSignupForm',
+    'signup': 'blog.forms.CustomSignupForm',
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
