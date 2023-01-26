@@ -166,24 +166,25 @@ body {
 }
 
 .btn-signup {
-    background-color: #23BBBB;
+    background-color: #445261;
     color: #fff;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
+    background-color: #F9FAFC;
+    color: #445261;
+    border: solid 1px #445261;
 }
 
 .link {
-    color: #23BBBB;
+    color: #8C4B26;
     text-decoration: none;
 }
 
 .link:hover,
 .link:active {
-    color: #445261;
+    color: #8C4B26;
     text-decoration: underline;
 }
 
@@ -221,6 +222,29 @@ body {
 #mobile-accordion {
     display: none;
 }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; 
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
 
 @media (max-width: 767px) {
     .small-text {

@@ -39,14 +39,14 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
+                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -61,7 +61,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-5 dark-bg">
+    <footer class="footer mt-auto dark-bg">
         <div class="row col-12 mt-3 p-4">
             <div class="col-8 col-md-4">
                 <h4 class="text-white">Archaevit</h4>
@@ -83,5 +83,12 @@
         </div>
     </footer>
 </body>
+
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
 
 </html>
