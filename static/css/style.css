@@ -251,6 +251,42 @@ body {
     visibility: visible;
   }
 
+  .liked {
+    background-color: #445261;
+    color: #F9FAFC;
+    padding: 10px;
+    margin: 3px;
+    height: 70px;
+    width: 100px;
+    border-radius: 2px;
+    border: none;
+}
+
+.liked:hover {
+    background-color: #F9FAFC;
+    color: #445261;
+    cursor: pointer;
+    border: solid 1px #445261;
+}
+
+.unliked {
+    background-color: #F9FAFC;
+    color: #445261;
+    padding: 10px;
+    margin: 3px;
+    height: 70px;
+    width: 100px;
+    border-radius: 2px;
+    border: none;
+}
+
+.unliked:hover {
+    background-color: #445261;
+    color: #F9FAFC;
+    cursor: pointer;
+}
+
+
 @media (max-width: 767px) {
     .small-text {
         display: none;
@@ -271,4 +307,16 @@ body {
         width: 100%;
         z-index: 1;
     }
+
+    .liked {
+        height: 50px;
+        width: 75px;
+    }
+    
+    .unliked {
+        height: 50px;
+        width: 75px;
+    }
+    
+
 }

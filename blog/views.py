@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
 
@@ -81,3 +82,26 @@ class PostDetail(View):
                 "underrated_liked": underrated_liked,
             },
         )
+
+
+class PostLike(View):
+    
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug)
+        if self.request.POST.get('interesting'):
+            if post.interesting_likes.filter(id=request.user.id).exists():
+                post.interesting_likes.remove(request.user)
+            else:
+                post.interesting_likes.add(request.user)
+        elif self.request.POST.get('important'):
+            if post.important_likes.filter(id=request.user.id).exists():
+                post.important_likes.remove(request.user)
+            else:
+                post.important_likes.add(request.user)
+        elif self.request.POST.get('underrated'):
+            if post.underrated_likes.filter(id=request.user.id).exists():
+                post.underrated_likes.remove(request.user)
+            else:
+                post.underrated_likes.add(request.user)
+    
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))

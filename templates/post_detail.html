@@ -21,9 +21,32 @@
             </div>
             <div class="row px-3 mt-3">
                 <h5 class="mb-4">Your Opinion</h5>
+                {% if user.is_authenticated %}
+                <form class="col-12" action="{% url 'post_like' post.slug %}" method="POST">
+                    {% csrf_token %}
+                    {% if interesting_liked %}
+                    <button type="submit" name="interesting" value="{{post.slug}}" class="card-text col-3 col-sm-3 text-center  liked"><i class="fa-regular fa-thumbs-up"></i><sup> {{ post.number_of_interesting_likes }}</sup> <br><span class="small-text">Interesting</span></button>
+                    {% else %}
+                    <button type="submit" name="interesting" value="{{post.slug}}" class="card-text col-3 col-sm-3 text-center  unliked"><i class="fa-regular fa-thumbs-up"></i><sup> {{ post.number_of_interesting_likes }}</sup> <br><span class="small-text">Interesting</span></button>
+                    {% endif %}
+                    {% if important_liked %}
+                    <button type="submit" name="important" value="{{post.slug}}" class="card-text col-3 col-sm-3 text-center  liked"><i class="fa fa-circle-exclamation"></i><sup> {{ post.number_of_important_likes }}</sup> <br><span class="small-text">Important</span></button>
+                    {% else %}
+                    <button type="submit" name="important" value="{{post.slug}}" class="card-text col-3 col-sm-3 text-center  unliked"><i class="fa fa-circle-exclamation"></i><sup> {{ post.number_of_important_likes }}</sup> <br><span class="small-text">Important</span></button>
+                    {% endif %}
+                    {% if underrated_liked %}
+                    <button type="submit" name="underrated" value="{{post.slug}}" class="card-text col-3 col-sm-3 text-center liked"><i class="fa fa-magnifying-glass-chart"></i><sup> {{ post.number_of_underrated_likes }}</sup> <br><span class="small-text">Underrated</span></button>
+                    {% else %}
+                    <button type="submit" name="underrated" value="{{post.slug}}" class="card-text col-3 col-sm-3 text-center unliked"><i class="fa fa-magnifying-glass-chart"></i><sup> {{ post.number_of_underrated_likes }}</sup> <br><span class="small-text">Underrated</span></button>
+                    {% endif %}
+                </form>
+                
+
+                {% else %}
                 <p class="card-text col-4 col-sm-3 text-center"><i class="fa-regular fa-thumbs-up"></i><sup> {{ post.number_of_interesting_likes }}</sup> <br><span class="small-text">Interesting</span></p>
                 <p class="card-text col-4 col-sm-3 text-center"><i class="fa fa-circle-exclamation"></i><sup> {{ post.number_of_important_likes }}</sup> <br><span class="small-text">Important</span></p>
                 <p class="card-text col-4 col-sm-3 text-center"><i class="fa fa-magnifying-glass-chart"></i><sup> {{ post.number_of_underrated_likes }}</sup> <br><span class="small-text">Underrated</span></p>
+                {% endif %}
             </div>
         </div>
       </div>
@@ -41,9 +64,35 @@
         </div>
         <div class="row px-3 ms-5 mt-5">
             <h5 class="mb-4">Your Opinion</h5>
-            <p class="card-text col-4 col-sm-3 text-center"><i class="fa-regular fa-thumbs-up"></i><sup> {{ post.number_of_interesting_likes }}</sup> <br><span class="small-text">Interesting</span></p>
-            <p class="card-text col-4 col-sm-3 text-center"><i class="fa fa-circle-exclamation"></i><sup> {{ post.number_of_important_likes }}</sup> <br><span class="small-text">Important</span></p>
-            <p class="card-text col-4 col-sm-3 text-center"><i class="fa fa-magnifying-glass-chart"></i><sup> {{ post.number_of_underrated_likes }}</sup> <br><span class="small-text">Underrated</span></p>
+            {% if user.is_authenticated %}
+                <form class="col-12" action="{% url 'post_like' post.slug %}" method="POST">
+                    {% csrf_token %}
+                    {% if interesting_liked %}
+                    <button type="submit" name="interesting" value="{{post.slug}}" class="card-text col-4 col-sm-3 text-center  liked"><i class="fa-regular fa-thumbs-up"></i><sup> {{ post.number_of_interesting_likes }}</sup> <br><span class="small-text">Interesting</span></button>
+                    {% else %}
+                    <button type="submit" name="interesting" value="{{post.slug}}" class="card-text col-4 col-sm-3 text-center  unliked"><i class="fa-regular fa-thumbs-up"></i><sup> {{ post.number_of_interesting_likes }}</sup> <br><span class="small-text">Interesting</span></button>
+                    {% endif %}
+                    {% if important_liked %}
+                    <button type="submit" name="important" value="{{post.slug}}" class="card-text col-4 col-sm-3 text-center  liked"><i class="fa fa-circle-exclamation"></i><sup> {{ post.number_of_important_likes }}</sup> <br><span class="small-text">Important</span></button>
+                    {% else %}
+                    <button type="submit" name="important" value="{{post.slug}}" class="card-text col-4 col-sm-3 text-center  unliked"><i class="fa fa-circle-exclamation"></i><sup> {{ post.number_of_important_likes }}</sup> <br><span class="small-text">Important</span></button>
+                    {% endif %}
+                    {% if underrated_liked %}
+                    <button type="submit" name="underrated" value="{{post.slug}}" class="card-text col-4 col-sm-3 text-center liked"><i class="fa fa-magnifying-glass-chart"></i><sup> {{ post.number_of_underrated_likes }}</sup> <br><span class="small-text">Underrated</span></button>
+                    {% else %}
+                    <button type="submit" name="underrated" value="{{post.slug}}" class="card-text col-4 col-sm-3 text-center unliked"><i class="fa fa-magnifying-glass-chart"></i><sup> {{ post.number_of_underrated_likes }}</sup> <br><span class="small-text">Underrated</span></button>
+                    {% endif %}
+                </form>
+                
+
+                {% else %}
+                <p class="card-text col-4 col-sm-3 text-center"><i class="fa-regular fa-thumbs-up"></i><sup> {{ post.number_of_interesting_likes }}</sup> <br><span class="small-text">Interesting</span></p>
+                <p class="card-text col-4 col-sm-3 text-center"><i class="fa fa-circle-exclamation"></i><sup> {{ post.number_of_important_likes }}</sup> <br><span class="small-text">Important</span></p>
+                <p class="card-text col-4 col-sm-3 text-center"><i class="fa fa-magnifying-glass-chart"></i><sup> {{ post.number_of_underrated_likes }}</sup> <br><span class="small-text">Underrated</span></p>
+                {% endif %}
+
+
+            
         </div>
     </div>
     <div class="col-12 col-md-8 ms-auto mt-3">
