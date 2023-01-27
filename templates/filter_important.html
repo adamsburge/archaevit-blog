@@ -11,9 +11,9 @@
         <a href=" {% url 'add-post' %}" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa-solid fa-plus"></i><br><span class="small-text">Add Post</span></p></a>
     {% else %}
         <a href="{% url 'home' %}" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa-solid fa-earth-americas"></i> <br><span class="small-text">All</span></p></a>
-        <a href="" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa-regular fa-thumbs-up"></i><br><span class="small-text">Interesting</span></p></a>
-        <a href="" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa fa-circle-exclamation"></i><br><span class="small-text">Important</span></p></a>
-        <a href="" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa fa-magnifying-glass-chart"></i><br><span class="small-text">Underrated</span></p></a>
+        <a href="{% url 'filter_interesting' %}" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa-regular fa-thumbs-up"></i><br><span class="small-text">Interesting</span></p></a>
+        <a href="{% url 'filter_important' %}" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa fa-circle-exclamation"></i><br><span class="small-text">Important</span></p></a>
+        <a href="{% url 'filter_underrated' %}" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa fa-magnifying-glass-chart"></i><br><span class="small-text">Underrated</span></p></a>
     {% endif %}
 </div>
 
