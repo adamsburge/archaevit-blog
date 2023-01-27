@@ -4,6 +4,19 @@ from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm, UpdatePostForm
+from django.contrib import messages
+from django.db.models import Count
+
+
+def delete_post(request, slug):
+	post = Post.objects.get(slug=slug)
+	if request.user.is_superuser:
+		post.delete()
+		messages.success(request, ("Event Deleted!"))
+		return redirect('home')		
+	else:
+		messages.success(request, ("You Aren't Authorized To Delete This Post!"))
+		return redirect('home')		
 
 
 def add_post(request):
@@ -22,12 +35,6 @@ def add_post(request):
 			submitted = True
 
 	return render(request, 'add_post.html', {'form':form, 'submitted':submitted})
-
-
-class AddPost(CreateView):
-    model = Post
-    template_name = 'add_post.html'
-    fields = ['title', 'country', 'dates', 'description',]
 
 
 def update_post(request, slug):

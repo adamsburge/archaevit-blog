@@ -38,6 +38,11 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link" href=" {% url 'add-post' %}">Add Post</a>
+                    </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
@@ -69,9 +74,8 @@
             </div>
             <div class="col-8 col-md-4">
                 <h4 class="text-white">Overview</h4>
-                <a href="" class="footer-link">About</a><br>
-                <a href="" class="footer-link">Register</a><br>
-                <a href="" class="footer-link">Sign In</a>
+                <a href="{% url 'account_signup' %}" class="footer-link">Register</a><br>
+                <a href="{% url 'account_login' %}" class="footer-link">Sign In</a>
             </div>
             <div class="col-8 col-md-4">
                 <h4 class="text-white">Socials</h4>

@@ -8,7 +8,7 @@
         <a href="" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa-regular fa-thumbs-up"></i><br><span class="small-text">Interesting</span></p></a>
         <a href="" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa fa-circle-exclamation"></i><br><span class="small-text">Important</span></p></a>
         <a href="" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa fa-magnifying-glass-chart"></i><br><span class="small-text">Underrated</span></p></a>
-        <a href="" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa-solid fa-plus"></i><br><span class="small-text">Add Post</span></p></a>
+        <a href=" {% url 'add-post' %}" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa-solid fa-plus"></i><br><span class="small-text">Add Post</span></p></a>
     {% else %}
         <a href="{% url 'home' %}" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa-solid fa-earth-americas"></i> <br><span class="small-text">All</span></p></a>
         <a href="" class="filter-link col-2 col-sm-2 center"><p class="card-text"><i class="fa-regular fa-thumbs-up"></i><br><span class="small-text">Interesting</span></p></a>
@@ -46,7 +46,7 @@
                                     {% if user.is_superuser %}
                                     <div class="row col-12 mt-2 ms-0 small-text-admin-edit text-center">
                                         <a class="col-5 col-md-5 me-1 me-md-5 admin-post-edit" href=" {% url 'update-post' post.slug %} "><p class="admin-post-edit-text"><i class="fa-solid fa-pen-nib"></i> Edit Post</p></a>
-                                        <a class="col-5 col-md-5 admin-post-edit" href=" {% url 'update-post' post.slug %} "><p class="admin-post-edit-text"><i class="fa-solid fa-trash"></i> Delete Post</p></a>
+                                        <a class="col-5 col-md-5 admin-post-edit" href=" {% url 'delete-post' post.slug %} "><p class="admin-post-edit-text"><i class="fa-solid fa-trash"></i> Delete Post</p></a>
                                     </div>
                                     {% endif %}
                                     <hr />
