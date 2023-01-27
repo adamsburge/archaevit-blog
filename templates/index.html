@@ -41,7 +41,7 @@
                                         <h2 class="card-title">{{ post.title }}</h2>
                                         <p class="card-text"><span class="bold">Country: </span>{{post.country }}</p>
                                         <p class="card-text"><span class="bold">Dates: </span>{{post.dates }}</p>
-                                        <p class="card-text">{{ post.excerpt }}</p>
+                                        <p class="card-text"> {{post.description|truncatewords:15}}</p>
                                     </a>
                                     {% if user.is_superuser %}
                                     <div class="row col-12 mt-2 ms-0 small-text-admin-edit text-center">

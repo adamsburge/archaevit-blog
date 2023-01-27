@@ -163,6 +163,8 @@
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-signup mt-3">Submit</button>
                             </form>
+                        {% else %}
+                        <p>If you would like to comment, <a href="{% url 'account_login' %}" class="link">log in</a> or <a href="{% url 'account_signup' %}" class="link">sign up</a>.</p>
                         {% endif %}
                         {% endif %}
                     </div>
