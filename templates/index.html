@@ -50,7 +50,7 @@
                                         <a class="col-5 col-md-5 admin-post-edit" href=" {% url 'delete-post' post.slug %} "><p class="admin-post-edit-text"><i class="fa-solid fa-trash"></i> Delete Post</p></a>
                                     </div>
                                     {% endif %}
-                                    <hr />
+                                    <hr>
                                     <div class="row text-center center">
                                         <p class="card-text col-3 col-sm-4 center"><i class="fa-regular fa-thumbs-up"></i><sup> {{ post.number_of_interesting_likes }}</sup> <br><span class="small-text">Interesting</span></p>
                                         <p class="card-text col-3 col-sm-4 center"><i class="fa fa-circle-exclamation"></i><sup> {{ post.number_of_important_likes }}</sup> <br><span class="small-text">Important</span></p>

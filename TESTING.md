@@ -10,11 +10,11 @@
 - HTML:
     - The HTML for the site has been checked for errors with the [W3 NU HTML Checker](https://validator.w3.org/nu/) and cleared with no errors reported
 - CSS:
-    - The CSS for the site has been checked for errors with the [W3C CSS Validator]() and passed with no errors found.
+    - The CSS for the site has been checked for errors with the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and passed with no errors found.
 - Javascript:
     - The Javascript for the site has been checked for errors with the [JSHint Website](https://jshint.com) and no errors were found
-- PEP8:
-    - No errors were returned from http://pep8online.com
+- Python:
+    - The Python for this site has been linted by both the built in linter in Gitpod as well as the Code Institute Pep8 replacement linter. No significant errors were found other than indications that some lines were too long and warnings where I have preferred to use tabs instead of spaces.
 
 
 ## Accessibility:

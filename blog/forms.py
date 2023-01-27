@@ -5,12 +5,13 @@ from django.forms import ModelForm
 from cloudinary.forms import CloudinaryFileField
 from django_summernote.widgets import SummernoteWidget
 
+
 # Custom Signup form to include extra fields from NewUser
 class CustomSignupForm(SignupForm):
-    first_name = forms.CharField(max_length=25, label='First Name', widget=forms.TextInput(attrs={'class':'form-control'}))
-    last_name = forms.CharField(max_length=25, label='Last Name', widget=forms.TextInput(attrs={'class':'form-control'}))
-    role = forms.CharField(max_length=50, label='Role', widget=forms.TextInput(attrs={'class':'form-control','data-bs-toggle': 'tooltip', 'data-bs-placement': 'right', 'title': "If you don't have a role at a university, put 'hobbyist' or 'independant scholar'"}))
-    institution = forms.CharField(max_length=50, label='Institution (Optional; leave blank if not associated with a university)', required=False, widget=forms.TextInput(attrs={'class':'form-control'}))
+    first_name = forms.CharField(max_length=25, label='First Name', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    last_name = forms.CharField(max_length=25, label='Last Name', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    role = forms.CharField(max_length=50, label='Role', widget=forms.TextInput(attrs={'class': 'form-control', 'data-bs-toggle': 'tooltip', 'data-bs-placement': 'right', 'title': "If you don't have a role at a university, put 'hobbyist' or 'independant scholar'"}))
+    institution = forms.CharField(max_length=50, label='Institution (Optional; leave blank if not associated with a university)', required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
@@ -42,21 +43,22 @@ class CommentForm(forms.ModelForm):
             'body': 'Type your comment below:'
         }
 
-#Form for adding and updating posts
+
+# Form for adding and updating posts
 class UpdatePostForm(forms.ModelForm):
-	class Meta:
-		model = Post
-		fields = ('title', 'country', 'dates', 'description', 'featured_image',)
-		labels = {
-			'title': 'Title',
-			'country': 'Country',
-			'dates': 'Dates',
-			'description': 'Description',
-            'featured_image': 'Image',		
-		}
-		widgets = {
-			'title': forms.TextInput(attrs={'class':'form-control'}),
-			'country': forms.TextInput(attrs={'class':'form-control'}),
-			'dates': forms.TextInput(attrs={'class':'form-control'}),
-			'description': SummernoteWidget(),
-		}
+    class Meta:
+        model = Post
+        fields = ('title', 'country', 'dates', 'description', 'featured_image',)
+        labels = {
+            'title': 'Title',
+            'country': 'Country',
+            'dates': 'Dates',
+            'description': 'Description',
+            'featured_image': 'Image',
+        }
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'country': forms.TextInput(attrs={'class': 'form-control'}),
+            'dates': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': SummernoteWidget(),
+        }

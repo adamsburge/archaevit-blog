@@ -163,7 +163,7 @@ Steps for Deployment:
 - Concept:
     - The concept of this app is my own.
 - Content:
-    - The content of the current blog posts on the site are taken, usually word for word, from the wikipedia pages associated with the archaeological sites.
+    - The content (both text and images) of the current blog posts on the site are taken, usually word for word, from the wikipedia pages associated with the archaeological sites.
 - Code: 
     - Much of the code for this project was based off of the Code Institue walkthrough project 'I think therefore I am'. Much of this project has been changed, but that project provided an outline for this one.
     - I spent several hours watching videos by John Elder on his channel [Codemy.com](https://www.youtube.com/playlist?list=PLCC34OHNcOtqW9BJmgQPPzUpJ8hl49AGy) particularly, his Django Wednesdays playlist. It would be impossible to list every line here influenced by his videos, though his most significant influence was in helping solidify my understanding of the Django framework as a whole.

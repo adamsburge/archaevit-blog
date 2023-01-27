@@ -14,10 +14,10 @@ def delete_post(request, slug):
 	if request.user.is_superuser:
 		post.delete()
 		messages.success(request, ("Event Deleted!"))
-		return redirect('home')		
+		return redirect('home')
 	else:
 		messages.success(request, ("You Aren't Authorized To Delete This Post!"))
-		return redirect('home')		
+		return redirect('home')
 
 
 # Add post instance
@@ -27,26 +27,26 @@ def add_post(request):
 		form = UpdatePostForm(request.POST, request.FILES)
 		if form.is_valid():
 			post = form.save(commit=False)
-			post.author = request.user # logged in user
+			post.author = request.user  # logged in user
 			post.save()
-			#form.save()
-			return 	redirect('home')
+			# form.save()
+			return redirect('home')
 	else:
 		form = UpdatePostForm
 		if 'submitted' in request.GET:
 			submitted = True
 
-	return render(request, 'add_post.html', {'form':form, 'submitted':submitted})
+	return render(request, 'add_post.html', {'form': form, 'submitted': submitted})
 
 
 # update a post
 def update_post(request, slug):
 	post = Post.objects.get(slug=slug)
 	if request.user.is_superuser:
-		form = UpdatePostForm(request.POST or None, request.FILES or None, instance=post)	
+		form = UpdatePostForm(request.POST or None, request.FILES or None, instance=post)
 	else:
 		form = UpdatePostForm(request.POST or None, request.FILES or None, instance=post)
-	
+
 	if form.is_valid():
 		form.save()
 		return redirect('home')
@@ -100,7 +100,7 @@ class PostDetail(View):
             important_liked = True
         underrated_liked = False
         if post.underrated_likes.filter(id=self.request.user.id).exists():
-            underrated_liked = True     
+            underrated_liked = True
         return render(
             request,
             "post_detail.html",
@@ -127,11 +127,11 @@ class PostDetail(View):
             important_liked = True
         underrated_liked = False
         if post.underrated_likes.filter(id=self.request.user.id).exists():
-            underrated_liked = True     
+            underrated_liked = True
 
         comment_form = CommentForm(data=request.POST)
         if request.user.institution == '':
-            comment_name = request.user.first_name + ' ' + request.user.last_name + ' – ' + request.user.role 
+            comment_name = request.user.first_name + ' ' + request.user.last_name + ' – ' + request.user.role
         else:
             comment_name = request.user.first_name + ' ' + request.user.last_name + ' – ' + request.user.role + ' – ' + request.user.institution
 
@@ -161,7 +161,7 @@ class PostDetail(View):
 
 # Add functionality for users to like posts
 class PostLike(View):
-    
+
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if self.request.POST.get('interesting'):
@@ -179,5 +179,5 @@ class PostLike(View):
                 post.underrated_likes.remove(request.user)
             else:
                 post.underrated_likes.add(request.user)
-    
+
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
