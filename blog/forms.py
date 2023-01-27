@@ -2,9 +2,10 @@ from allauth.account.forms import SignupForm
 from .models import Comment, Post
 from django import forms
 from django.forms import ModelForm
-from cloudinary.forms import CloudinaryFileField 
+from cloudinary.forms import CloudinaryFileField
+from django_summernote.widgets import SummernoteWidget
 
-
+# Custom Signup form to include extra fields from NewUser
 class CustomSignupForm(SignupForm):
     first_name = forms.CharField(max_length=25, label='First Name', widget=forms.TextInput(attrs={'class':'form-control'}))
     last_name = forms.CharField(max_length=25, label='Last Name', widget=forms.TextInput(attrs={'class':'form-control'}))
@@ -37,8 +38,11 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('body',)
+        labels = {
+            'body': 'Type your comment below:'
+        }
 
-
+#Form for adding and updating posts
 class UpdatePostForm(forms.ModelForm):
 	class Meta:
 		model = Post
@@ -54,5 +58,5 @@ class UpdatePostForm(forms.ModelForm):
 			'title': forms.TextInput(attrs={'class':'form-control'}),
 			'country': forms.TextInput(attrs={'class':'form-control'}),
 			'dates': forms.TextInput(attrs={'class':'form-control'}),
-			'description': forms.Textarea(attrs={'class':'form-control'}),
+			'description': SummernoteWidget(),
 		}

@@ -4,6 +4,16 @@ body {
     color: #223240;
 }
 
+a {
+    color: #8C4B26;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #8C4B26;
+    text-decoration: underline;
+}
+
 .brand {
     font-size: 1.4rem;
     font-weight: 700;
@@ -130,6 +140,7 @@ body {
 }
 
 .filter-link:hover {
+    text-decoration: none;
     background-color: #445261;
     color: #F9FAFC;
 }
@@ -138,6 +149,10 @@ body {
 .post-link {
     text-decoration: none;
     color: #364022;
+}
+
+.post-link:hover{
+    text-decoration: none;
 }
 
 .post-link:hover,

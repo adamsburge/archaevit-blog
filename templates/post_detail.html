@@ -2,6 +2,7 @@
 
 {% load crispy_forms_tags %}
 
+<!-- Create accordian for navigation and interaction in mobile view -->
 <div class="accordion accordion-flush" id="mobile-accordion">
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
@@ -52,7 +53,10 @@
       </div>
     </div>
 </div>
+
+<!-- Build desktop view-->
 <div class="row col">
+    <!-- Build desktop sidebar-->
     <div class="col-4 position-fixed mt-5" id="post-side-bar-lg">
         <div class="row px-3 ms-5">
             <h5>Contents</h5>
@@ -95,6 +99,7 @@
             
         </div>
     </div>
+    <!-- Build main content column -->
     <div class="col-12 col-md-8 ms-auto mt-3">
         <div class="row">
             <div class="col masthead-text">

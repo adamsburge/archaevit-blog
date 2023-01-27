@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.db.models import Count
 
 
+# Delete post instance
 def delete_post(request, slug):
 	post = Post.objects.get(slug=slug)
 	if request.user.is_superuser:
@@ -19,6 +20,7 @@ def delete_post(request, slug):
 		return redirect('home')		
 
 
+# Add post instance
 def add_post(request):
 	submitted = False
 	if request.method == "POST":
@@ -37,6 +39,7 @@ def add_post(request):
 	return render(request, 'add_post.html', {'form':form, 'submitted':submitted})
 
 
+# update a post
 def update_post(request, slug):
 	post = Post.objects.get(slug=slug)
 	if request.user.is_superuser:
@@ -51,6 +54,7 @@ def update_post(request, slug):
 	return render(request, 'update_post.html', {'post': post, 'form': form})
 
 
+# Display the homepage with a listview
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -58,6 +62,7 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
+# Display the an alternate version of the homepage with a filtered listview (see html page for filter)
 class PostListInteresting(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -65,6 +70,7 @@ class PostListInteresting(generic.ListView):
     paginate_by = 6
 
 
+# Display the an alternate version of the homepage with a filtered listview (see html page for filter)
 class PostListImportant(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -72,6 +78,7 @@ class PostListImportant(generic.ListView):
     paginate_by = 6
 
 
+# Display the an alternate version of the homepage with a filtered listview (see html page for filter)
 class PostListUnderrated(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -79,6 +86,7 @@ class PostListUnderrated(generic.ListView):
     paginate_by = 6
 
 
+# Display the Post webpage
 class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -151,6 +159,7 @@ class PostDetail(View):
         )
 
 
+# Add functionality for users to like posts
 class PostLike(View):
     
     def post(self, request, slug, *args, **kwargs):

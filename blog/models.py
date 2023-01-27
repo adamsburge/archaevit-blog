@@ -5,12 +5,13 @@ from django.utils.text import slugify
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
-
+#Model 1: Extends default user model and adds extras fields
 class NewUser(AbstractUser):
     institution = models.CharField(max_length=100)
     role = models.CharField(max_length=100)
 
 
+#Model 2: Model for archaeological site posts
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -52,7 +53,7 @@ class Post(models.Model):
     def number_of_underrated_likes(self):
         return self.underrated_likes.count()
 
-
+#Model 3: Model for Comments
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=80)
