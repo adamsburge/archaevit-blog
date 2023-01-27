@@ -4,13 +4,13 @@
 
 The deployed webapp can be accessed [here](https://archaevit.herokuapp.com/).
 
-Archaevit is designed to be a social media web application for historians, archaeologists and any one who has an interest in history. Users are able to read articles about archaeological sites, mark the sites as interesting, important, and/or underrated. Addiitonally, they are able to comment and discuss their opinions about the archaeological site. Admin users are able to add, update and delete posts about archaeological sites.
+Archaevit is designed to be a social media web application for historians, archaeologists and anyone who has an interest in history. Users are able to read articles about archaeological sites, mark the sites as interesting, important, and/or underrated. Additonally, they are able to comment and discuss their opinions about each archaeological site. Admin users are able to add, update and delete posts about archaeological sites.
 
 
 # Project Planning 
 
 ## Wireframes
-I used [balsamiq wireframes](https://balsamiq.com/) to design the ux and ui of the site. 
+I used [balsamiq wireframes](https://balsamiq.com/) to design the UX and UI of the site. 
 
 ### Home Page
 
@@ -24,7 +24,7 @@ I used [balsamiq wireframes](https://balsamiq.com/) to design the ux and ui of t
 
 ![About Page Wireframe](static/images/About.png)
 
-**Note**: This page is not get completed and could be a future development.
+**Note**: This page is not yet completed and could be a future development of the site.
 
 ### Register
 
@@ -35,15 +35,15 @@ I used [balsamiq wireframes](https://balsamiq.com/) to design the ux and ui of t
 ![Log in Page Wireframe](static/images/Log%20in.png)
 
 ### User Stories
-To access and read the user stories for this project, see my Github project [Archaevit User Stories](https://github.com/users/adamsburge/projects/3). Many of these user stories were taken from the Code Institute 'I think therefore I blog' walkthrough project. Additionally, two of the user stories are incomplete and are areas where future work on the project could be done.
+To access and read the user stories for this project, see my Github project [Archaevit User Stories](https://github.com/users/adamsburge/projects/3). Many of these user stories were taken from the Code Institute 'I think therefore I blog' walkthrough project. Two of the user stories are incomplete and are areas where future work could be done on the project.
 
 ![User Stories](static/images/user_stories.png)
 
 
 ### Databse Structures
-The database models used for this project were based on the models used in Code Institute's 'I think therefore I blog' walkthrough project. However, these have been adjusted and added to for the purpose of this project. Notably, this project extends Django's default user model and adds extra fields to this model where the Code Institute models kept the default model.
+The database models used for this project were based on the models used in Code Institute's 'I think therefore I blog' walkthrough project. However, these have been adjusted and added to for the purpose of the current project. Notably, this project extends Django's default user model and adds extra fields to this model where the Code Institute models kept the default model.
 
-Note: included here is the database model for 'updates' comment thread which, mentioned in the user stories above, outline areas where this project could develop with future work.
+Note: Included here is the database model for the 'updates' comment thread which, as mentioned in the user stories above, outlines areas where this project could develop with future work.
 
 ![Database Models](static/images/Database%20Models.png)
 
@@ -69,13 +69,13 @@ Any site visitor can register for an account. Once they have done so, they can s
 ## Features for Site Visitors, Users with Profiles and Admin Users
 
 ### View Home Page
-All site visitors can access the home page which contains the main thread post thread.
+All site visitors can access the home page, which contains the main post feed.
 
 ![Normal Home Page](static/images/non-admin_user_home.png)
 
 
 ### Filter Posts by Trending Criteria
-All site visitors can also select any of the three trending criteria (interesting, important and underrated) to see archaeological sites that other users have collectively indicated rank the highest in those categories.
+All site visitors can also select any of the three trending criteria ('interesting', 'important' and 'underrated') to view archaeological sites that other users have collectively indicated rank the highest in those categories.
 
 ![Normal Home Page](static/images/non-admin_user_home.png)
 
@@ -97,7 +97,7 @@ Users who have signed up for an account have access to comments.
 
 
 ### Mark a Post as Interesting, Important and/or Underrated
-Users who have an account are able to access the like buttons and indicate a post as being interesting, important and/or underrated.
+Users who have an account are able to access the 'like' buttons and indicate a post as being interesting, important and/or underrated.
 
 ![Likes](static/images/likes.png)
 
@@ -123,15 +123,15 @@ The home page for site admins allows them to add, update and delete posts.
 - Postgresql
 
 ### Libraries, Frameworks, Programmes & Tools
-- Github - version control and storing code 
-- Gitpod - coding platform
-- Django - primary coding framework
-- Psycopg2 - databse adapter between Postgreql and Python
-- Cloudinary - media storage
-- Herokuapp - web app deployment
-- Allauth - building user registration 
+- Github - Version control and storing code 
+- Gitpod - Coding platform
+- Django - Primary coding framework
+- Psycopg2 - Databse adapter between Postgreql and Python
+- Cloudinary - Media storage
+- Herokuapp - Web app deployment
+- Allauth - Building user registration 
 - Gunicorn - Python Web Server Gateway Interface HTTP server
-- Django-Summernote - Allow forms have customisable input
+- Django-Summernote - Allow forms to have customisable input
 - Django-Crispy-Forms - Build comment forms
 - Bootstrap - General Styling
 - FontAwesome - Icons for webapp
@@ -158,17 +158,17 @@ Steps for Deployment:
 
 # Credits
 - Deployment aesthetic:
-    - Color theme came from Adobe color
-    - The layout of the Post-Detail view was inspired by Wikipedia's recent interface update
+    - The color theme came from Adobe Color.
+    - The layout of the Post-Detail view was inspired by Wikipedia's recent interface update.
 - Concept:
     - The concept of this app is my own.
 - Content:
-    - The content (both text and images) of the current blog posts on the site are taken, usually word for word, from the wikipedia pages associated with the archaeological sites.
+    - The content (both text and images) of the current blog posts on the site are taken, usually word for word, from the Wikipedia pages associated with the archaeological sites.
 - Code: 
-    - Much of the code for this project was based off of the Code Institue walkthrough project 'I think therefore I am'. Much of this project has been changed, but that project provided an outline for this one.
-    - I spent several hours watching videos by John Elder on his channel [Codemy.com](https://www.youtube.com/playlist?list=PLCC34OHNcOtqW9BJmgQPPzUpJ8hl49AGy) particularly, his Django Wednesdays playlist. It would be impossible to list every line here influenced by his videos, though his most significant influence was in helping solidify my understanding of the Django framework as a whole.
+    - Much of the code for this project was based on the Code Institue walkthrough project 'I think therefore I blog'. Much of this project has been changed, but that project provided an outline for this one.
+    - I spent several hours watching videos by John Elder on his channel [Codemy.com](https://www.youtube.com/playlist?list=PLCC34OHNcOtqW9BJmgQPPzUpJ8hl49AGy), particularly his Django Wednesdays playlist. It would be impossible to list every line of my code that was influenced by his videos, though his most significant influence was in helping solidify my understanding of the Django framework as a whole.
     - Various forums such as Stack Exchange and Stack Overflow helped to solve small problems when I was stuck on a line of code.
 - Individuals:
-    - My Mentor, [Adegbenga Adeye](https://github.com/deye9), provided comments and feedback
-    - My wife, Megan, provided wonderful feedback, and, most importantly, saw me through the project making every break a delight.
+    - My Mentor, [Adegbenga Adeye](https://github.com/deye9), provided comments and feedback.
+    - My wife, Megan, provided wonderful feedback, and, most importantly, saw me through the project by making every break a delight.
 
