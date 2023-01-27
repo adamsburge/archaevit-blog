@@ -2,6 +2,7 @@ from allauth.account.forms import SignupForm
 from .models import Comment, Post
 from django import forms
 from django.forms import ModelForm
+from cloudinary.forms import CloudinaryFileField 
 
 
 class CustomSignupForm(SignupForm):
@@ -41,12 +42,13 @@ class CommentForm(forms.ModelForm):
 class UpdatePostForm(forms.ModelForm):
 	class Meta:
 		model = Post
-		fields = ('title', 'country', 'dates', 'description',)
+		fields = ('title', 'country', 'dates', 'description', 'featured_image',)
 		labels = {
 			'title': 'Title',
 			'country': 'Country',
 			'dates': 'Dates',
-			'description': 'Description',		
+			'description': 'Description',
+            'featured_image': 'Image',		
 		}
 		widgets = {
 			'title': forms.TextInput(attrs={'class':'form-control'}),

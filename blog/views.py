@@ -22,7 +22,7 @@ def delete_post(request, slug):
 def add_post(request):
 	submitted = False
 	if request.method == "POST":
-		form = UpdatePostForm(request.POST)
+		form = UpdatePostForm(request.POST, request.FILES)
 		if form.is_valid():
 			post = form.save(commit=False)
 			post.author = request.user # logged in user
@@ -40,9 +40,9 @@ def add_post(request):
 def update_post(request, slug):
 	post = Post.objects.get(slug=slug)
 	if request.user.is_superuser:
-		form = UpdatePostForm(request.POST or None, instance=post)	
+		form = UpdatePostForm(request.POST or None, request.FILES or None, instance=post)	
 	else:
-		form = UpdatePostForm(request.POST or None, instance=post)
+		form = UpdatePostForm(request.POST or None, request.FILES or None, instance=post)
 	
 	if form.is_valid():
 		form.save()
@@ -55,6 +55,27 @@ class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
+    paginate_by = 6
+
+
+class PostListInteresting(generic.ListView):
+    model = Post
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    template_name = 'filter_interesting.html'
+    paginate_by = 6
+
+
+class PostListImportant(generic.ListView):
+    model = Post
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    template_name = 'filter_important.html'
+    paginate_by = 6
+
+
+class PostListUnderrated(generic.ListView):
+    model = Post
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    template_name = 'filter_underrated.html'
     paginate_by = 6
 
 
