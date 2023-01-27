@@ -1,108 +1,174 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Welcome to Archaevit
 
-Welcome adamsburge,
+![Am I Responsive Screenshot](static/images/am_i_responsive.png)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+The deployed webapp can be accessed [here](https://archaevit.herokuapp.com/).
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Archaevit is designed to be a social media web application for historians, archaeologists and any one who has an interest in history. Users are able to read articles about archaeological sites, mark the sites as interesting, important, and/or underrated. Addiitonally, they are able to comment and discuss their opinions about the archaeological site. Admin users are able to add, update and delete posts about archaeological sites.
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# Project Planning 
 
-`python3 -m http.server`
+## Wireframes
+I used [balsamiq wireframes](https://balsamiq.com/) to design the ux and ui of the site. 
 
-A blue button should appear to click: _Make Public_,
+### Home Page
 
-Another blue button should appear to click: _Open Browser_.
+![Home Page Wireframe](static/images/Home%20Page.png)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Archaeological Site Page
 
-A blue button should appear to click: _Make Public_,
+![Post Page Wireframe](static/images/Archaeological%20Site%20Page.png)
 
-Another blue button should appear to click: _Open Browser_.
+### About Page
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+![About Page Wireframe](static/images/About.png)
 
-To log into the Heroku toolbelt CLI:
+**Note**: This page is not get completed and could be a future development.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Register
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+![Register Page Wireframe](static/images/Register.png)
 
-------
+### Sign in
 
-## Release History
+![Log in Page Wireframe](static/images/Log%20in.png)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### User Stories
+To access and read the user stories for this project, see my Github project [Archaevit User Stories](https://github.com/users/adamsburge/projects/3). Many of these user stories were taken from the Code Institute 'I think therefore I blog' walkthrough project. Additionally, two of the user stories are incomplete and are areas where future work on the project could be done.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+![User Stories](static/images/user_stories.png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### Databse Structures
+The database models used for this project were based on the models used in Code Institute's 'I think therefore I blog' walkthrough project. However, these have been adjusted and added to for the purpose of this project. Notably, this project extends Django's default user model and adds extra fields to this model where the Code Institute models kept the default model.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+Note: included here is the database model for 'updates' comment thread which, mentioned in the user stories above, outline areas where this project could develop with future work.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+![Database Models](static/images/Database%20Models.png)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+# Features
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## General Features
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Sign up, Sign in, Sign Out
+Any site visitor can register for an account. Once they have done so, they can sign in and out.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+![Signup](static/images/signup.png)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![Mobile Sign up](static/images/mobile_sign_up.png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+![Signin](static/images/sign_in.png)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+![Mobile Signin](static/images/mobile_sign_in.png)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+![Sign out](static/images/sign_out.png)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+![Mobile signout](static/images/sign_out_mobile.png)
 
-------
+## Features for Site Visitors, Users with Profiles and Admin Users
 
-## FAQ about the uptime script
+### View Home Page
+All site visitors can access the home page which contains the main thread post thread.
 
-**Why have you added this script?**
+![Normal Home Page](static/images/non-admin_user_home.png)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
 
-**How will this affect me?**
+### Filter Posts by Trending Criteria
+All site visitors can also select any of the three trending criteria (interesting, important and underrated) to see archaeological sites that other users have collectively indicated rank the highest in those categories.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+![Normal Home Page](static/images/non-admin_user_home.png)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### View Posts and Comments
+All site visitors can view the archaeological site pages and the comments other users have left.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+![Blog Post](static/images/post_head.png)
 
-**So….?**
+![Comments](static/images/comment_logged_out.png)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+![Mobile likes](static/images/mobile_post.png)
 
-**Can I opt out?**
+## Features Users with Profiles and Admin Users
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### Comment on Posts
+Users who have signed up for an account have access to comments.
+![Comments](static/images/comments.png)
 
-**Anything more?**
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### Mark a Post as Interesting, Important and/or Underrated
+Users who have an account are able to access the like buttons and indicate a post as being interesting, important and/or underrated.
 
----
+![Likes](static/images/likes.png)
 
-Happy coding!
+![Mobile likes](static/images/mobile_post_contents.png)
+
+## Features for Admin Only
+
+### Add, Update and Delete Posts
+The home page for site admins allows them to add, update and delete posts.
+![Admin Dashboard](static/images/admin_dashboard.png)
+
+![Add post](static/images/add-post.png)
+
+![Update post](static/images/update_post.png)
+
+# Technologies
+
+### Languages
+- HTML
+- CSS
+- Python
+- Javascript
+- Postgresql
+
+### Libraries, Frameworks, Programmes & Tools
+- Github - version control and storing code 
+- Gitpod - coding platform
+- Django - primary coding framework
+- Psycopg2 - databse adapter between Postgreql and Python
+- Cloudinary - media storage
+- Herokuapp - web app deployment
+- Allauth - building user registration 
+- Gunicorn - Python Web Server Gateway Interface HTTP server
+- Django-Summernote - Allow forms have customisable input
+- Django-Crispy-Forms - Build comment forms
+- Bootstrap - General Styling
+- FontAwesome - Icons for webapp
+- Google Fonts - Fonts
+
+
+# Testing
+To read about the manual testing employed in this project, read the [TESTING.md file](TESTING.md).
+
+# Deployment
+This project is deployed using Heroku.
+
+Steps for Deployment:
+1. Fork or Clone this Depository
+2. Create new Heroku app
+3. Install django, cloudinary, gunicorn, psycopg2, django-summernote, django-crispy-forms and django-allauth
+4. Create a Cloudinary account, get your secret url and put it into the env.py file
+5. Create a free account with Elephantsql, obtain a database url and put it into the env.py file
+6. Create a unique secret key and put that into the env.py file 
+7. Make migrations
+8. Link the Heroku app to the repository
+9. Click Deploy
+
+
+# Credits
+- Deployment aesthetic:
+    - Color theme came from Adobe color
+    - The layout of the Post-Detail view was inspired by Wikipedia's recent interface update
+- Concept:
+    - The concept of this app is my own.
+- Content:
+    - The content of the current blog posts on the site are taken, usually word for word, from the wikipedia pages associated with the archaeological sites.
+- Code: 
+    - Much of the code for this project was based off of the Code Institue walkthrough project 'I think therefore I am'. Much of this project has been changed, but that project provided an outline for this one.
+    - I spent several hours watching videos by John Elder on his channel [Codemy.com](https://www.youtube.com/playlist?list=PLCC34OHNcOtqW9BJmgQPPzUpJ8hl49AGy) particularly, his Django Wednesdays playlist. It would be impossible to list every line here influenced by his videos, though his most significant influence was in helping solidify my understanding of the Django framework as a whole.
+    - Various forums such as Stack Exchange and Stack Overflow helped to solve small problems when I was stuck on a line of code.
+- Individuals:
+    - My Mentor, [Adegbenga Adeye](https://github.com/deye9), provided comments and feedback
+    - My wife, Megan, provided wonderful feedback, and, most importantly, saw me through the project making every break a delight.
+
